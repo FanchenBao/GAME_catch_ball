@@ -2,13 +2,6 @@ import sys
 import pygame
 
 
-def basket_check_edges(basket):
-	''' if baseket hit the edge of screen, it cannot keep moving'''
-	if basket.rect.right == basket.screen_rect.right:
-		basket.move_right = False
-	if basket.rect.left == basket.screen_rect.left:
-		basket.move_left == False
-
 def check_key_down_event(event, basket):
 	''' check key press event'''
 	# press right arrow key

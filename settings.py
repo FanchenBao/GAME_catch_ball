@@ -8,6 +8,6 @@ class Settings():
 		# ball settings
 		self.ball_speed = 3
 		self.balls_allowed = 5
-		
+
 		# basket settings
-		self.basket_speed = 3
+		self.basket_speed = 10

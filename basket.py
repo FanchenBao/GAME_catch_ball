@@ -26,8 +26,14 @@ class Basket():
 		''' update basket position based on key press'''
 		if self.move_right:
 			self.center += self.ai_settings.basket_speed
+			# make sure basket does not move outside the scren
+			if self.rect.right >= self.screen_rect.right:
+				self.center = self.screen_rect.right - self.rect.width / 2
 		if self.move_left:
 			self.center -= self.ai_settings.basket_speed
+			# make sure basket does not move outside the scren
+			if self.rect.left <= 0:
+				self.center = self.rect.width / 2
 
 		self.rect.centerx = self.center
 
