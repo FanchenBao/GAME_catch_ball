@@ -1,5 +1,7 @@
 import sys
 import pygame
+from ball import Ball
+
 
 
 def check_key_down_event(event, basket):
@@ -36,9 +38,10 @@ def check_events(basket):
 		elif event.type == pygame.KEYUP:
 			check_key_up_event(event, basket)
 
-def update_screen(screen, basket, ai_settings):
+def update_screen(screen, basket, ai_settings, ball):
 	screen.fill(ai_settings.background_color)
 	basket.blitme()
+	ball.blitme()
 	# display the most recent drawing on the screen
 	pygame.display.flip()
 
