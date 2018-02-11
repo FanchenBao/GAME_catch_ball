@@ -3,6 +3,7 @@ from pygame.sprite import Group
 from settings import Settings
 from ball import Ball
 from basket import Basket
+from game_stats import GameStats
 import game_function as gf
 
 def run_game():
@@ -13,15 +14,19 @@ def run_game():
 	screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
 	pygame.display.set_caption("Catch Ball")
 
+	# create an instance to store game stats
+	stats = GameStats(ai_settings)
+
 	# create a group of balls
-	ball = Ball(screen, ai_settings)
+	balls = Group()
+	gf.create_ball(balls, screen, ai_settings)
 	# create one basket
 	basket = Basket(screen, ai_settings)
 
 	while True:
 		gf.check_events(basket)
 		basket.update()
-		ball.update()
-		gf.update_screen(screen, basket, ai_settings, ball)
+		gf.update_balls(balls, basket, screen, ai_settings, stats)
+		gf.update_screen(screen, basket, ai_settings, balls)
 
 run_game()

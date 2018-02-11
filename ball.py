@@ -14,7 +14,7 @@ class Ball(Sprite):
 		self.rect = self.image.get_rect()
 		self.screen_rect = self.screen.get_rect()
 		# default ball starting position is the top left corner of screen
-		self.rect.x = randint(self.screen_rect.left, self.screen_rect.right)
+		self.rect.x = randint(0, (self.screen_rect.right - self.rect.width))
 		self.rect.y = 0
 		self.y = float(self.rect.y)
 
@@ -24,6 +24,12 @@ class Ball(Sprite):
 		'''ball always goes down'''
 		self.y += self.ball_speed
 		self.rect.y = self.y
+
+	def reposition(self):
+		'''reposition ball to the top of the screen as if to start a new ball'''
+		self.y = 0
+		self.rect.y =self.y
+		self.rect.x = randint(0, (self.screen_rect.right - self.rect.width))
 
 	def blitme(self):
 		''' draw the ball'''
