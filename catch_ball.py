@@ -25,8 +25,9 @@ def run_game():
 
 	while True:
 		gf.check_events(basket)
-		basket.update()
-		gf.update_balls(balls, basket, screen, ai_settings, stats)
+		if stats.game_active:
+			basket.update()
+			gf.update_balls(balls, basket, screen, ai_settings, stats)
 		gf.update_screen(screen, basket, ai_settings, balls)
 
 run_game()

@@ -3,6 +3,13 @@ import pygame
 from ball import Ball
 from time import sleep
 
+def ball_caught(ball, basket):
+	'''if center of ball collides within the width of basket, it's a catch'''
+	if ball.rect.centerx < basket.rect.right and ball.rect.centerx > basket.rect.left:
+		print("Caught!")
+	else:
+		print("Miss!")
+
 def update_balls(balls, basket, screen, ai_settings, stats):
 	''' update current ball location and determine whether ball has been caught or missed'''
 	# in order to use spritecollideany, ball has to be in a group
@@ -11,11 +18,7 @@ def update_balls(balls, basket, screen, ai_settings, stats):
 		if pygame.sprite.spritecollideany(basket, balls):
 			# give player a little pause to identify where the collision happens
 			sleep(0.2)
-			# if center of ball collides within the width of basket, it's a catch
-			if ball.rect.centerx < basket.rect.right and ball.rect.centerx > basket.rect.left:
-				print("Caught!")
-			else:
-				print("Miss!")
+			ball_caught(ball, basket)
 
 			# reduce number of balls left and reposition ball if there are still balls left	
 			stats.balls_left -= 1
@@ -32,9 +35,9 @@ def update_balls(balls, basket, screen, ai_settings, stats):
 		# when no ball is left, give a longer pause and reset stats and restart the game.
 		if stats.balls_left == 0:
 			print("No ball left!")
-			sleep(0.5)
-			stats.reset_stats()
-			ball.reposition()
+			# end game
+			stats.game_active = False
+			break
 		ball.update()
 
 def create_ball(balls, screen, ai_settings):
