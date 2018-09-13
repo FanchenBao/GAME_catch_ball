@@ -1,3 +1,11 @@
+'''
+Author: Fanchen Bao
+Date: 02/10/2018
+
+Description: 
+Ball class
+'''
+
 import pygame
 from pygame.sprite import Sprite
 from random import randint

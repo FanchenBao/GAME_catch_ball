@@ -1,3 +1,12 @@
+'''
+Author: Fanchen Bao
+Date: 02/10/2018
+
+Description: 
+Driver file
+Player moves the basket around to catch falling balls
+'''
+
 import pygame
 from pygame.sprite import Group
 from settings import Settings

@@ -1,3 +1,11 @@
+'''
+Author: Fanchen Bao
+Date: 02/10/2018
+
+Description: 
+Basket class
+'''
+
 import pygame
 
 class Basket():

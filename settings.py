@@ -1,3 +1,11 @@
+'''
+Author: Fanchen Bao
+Date: 02/10/2018
+
+Description: 
+Settings class, default settings of the game
+'''
+
 class Settings():
 	''' store basic game settings'''
 	def __init__(self):
@@ -6,7 +14,7 @@ class Settings():
 		self.background_color = (230, 230, 230)
 
 		# ball settings
-		self.ball_speed = 10
+		self.ball_speed = 8
 		self.balls_allowed = 5
 
 		# basket settings

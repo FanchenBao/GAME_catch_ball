@@ -1,3 +1,11 @@
+'''
+Author: Fanchen Bao
+Date: 02/11/2018
+
+Description: 
+GameStats class
+'''
+
 class GameStats():
 	def __init__(self, ai_settings):
 		self.ai_settings = ai_settings

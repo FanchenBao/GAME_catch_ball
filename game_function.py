@@ -1,3 +1,11 @@
+'''
+Author: Fanchen Bao
+Date: 02/10/2018
+
+Description: 
+Main module for the game, providng all important functions.
+'''
+
 import sys
 import pygame
 from ball import Ball
